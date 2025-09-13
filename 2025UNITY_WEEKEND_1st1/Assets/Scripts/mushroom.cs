@@ -33,7 +33,7 @@ public class mushroom : MonoBehaviour
     void OnCollisionEnter2D(Collision2D collision)
     {
         // 충돌한 오브젝트의 태그가 "greenpipe"인지 확인합니다.
-        if (collision.gameObject.CompareTag("Well"))
+        if (collision.gameObject.CompareTag("Wall") ) 
         {
             // 방향을 반전시킵니다. (오른쪽 -> 왼쪽, 왼쪽 -> 오른쪽)
             direction *= -1;
@@ -41,6 +41,64 @@ public class mushroom : MonoBehaviour
             // 추가적으로 필요하다면 스프라이트 방향도 반전시킬 수 있습니다.
             //transform.localScale = new Vector3(direction, 1, 1);
         }
+        else if (collision.gameObject.CompareTag("Player"))
+        {
+            // 플레이어와 충돌했을 때의 이벤트 처리
+            //Debug.Log("플레이어와 충돌했습니다!");
+            // 예: 플레이어의 체력을 감소시키거나 게임 오버 처리 등
+            // 방향을 반전시킵니다. (오른쪽 -> 왼쪽, 왼쪽 -> 오른쪽)
+            //direction *= -1;
+
+            // 플레이어 크기를 1.5배로 키움
+            //collision.gameObject.transform.localScale *= 1.5f;
+
+            /*
+            // 플레이어 크기를 1.5배로 키움
+            Transform playerTransform = collision.gameObject.transform;
+            playerTransform.localScale *= 1.5f;
+
+            // 크기 복구 코루틴 시작
+            StartCoroutine(ResetPlayerScale(playerTransform));
+
+
+            // 버섯 오브젝트 제거
+            Destroy(gameObject);
+            */
+            Transform playerTransform = collision.gameObject.transform;
+
+            // 원래 크기를 저장
+            Vector3 originalScale = playerTransform.localScale;
+
+            // 크기 증가
+            playerTransform.localScale = originalScale * 1.5f;
+
+            // 크기 복구 코루틴 시작
+            StartCoroutine(ResetPlayerScale(playerTransform, originalScale));
+
+            // 버섯 제거
+            Destroy(gameObject);
+
+
+        }
+
     }
 
+    // 코루틴: 5초 후 플레이어 크기 원래대로 복구
+    System.Collections.IEnumerator ResetPlayerScale(Transform playerTransform, Vector3 originalScale)
+    {
+        yield return new WaitForSeconds(5f);
+
+        /*
+        // 원래 크기로 복구 (1 / 1.5 = 약 0.666...)
+        playerTransform.localScale /= 1.5f;
+
+        */
+
+        // 원래 크기로 복구
+        playerTransform.localScale = originalScale;
+
+
+    }
 }
+
+

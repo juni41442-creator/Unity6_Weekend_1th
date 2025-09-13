@@ -4,7 +4,7 @@ using UnityEngine;
 public class Mario : MonoBehaviour
 {
     public float speed = 5f;
-    public float JumpForce = 10f;
+    public float JumpForce = 1000f;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
