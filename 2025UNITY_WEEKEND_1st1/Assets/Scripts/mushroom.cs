@@ -72,11 +72,13 @@ public class mushroom : MonoBehaviour
             // 크기 증가
             playerTransform.localScale = originalScale * 1.5f;
 
-            // 크기 복구 코루틴 시작
-            StartCoroutine(ResetPlayerScale(playerTransform, originalScale));
+            
 
             // 버섯 제거
             Destroy(gameObject);
+
+            // 크기 복구 코루틴 시작
+            StartCoroutine(ResetPlayerScale(playerTransform, originalScale));
 
 
         }
