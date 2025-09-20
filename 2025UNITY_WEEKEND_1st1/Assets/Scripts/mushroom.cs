@@ -41,7 +41,7 @@ public class mushroom : MonoBehaviour
             // 추가적으로 필요하다면 스프라이트 방향도 반전시킬 수 있습니다.
             //transform.localScale = new Vector3(direction, 1, 1);
         }
-        else if (collision.gameObject.CompareTag("Player"))
+       /* else if (collision.gameObject.CompareTag("Player"))
         {
             // 플레이어와 충돌했을 때의 이벤트 처리
             //Debug.Log("플레이어와 충돌했습니다!");
@@ -63,7 +63,7 @@ public class mushroom : MonoBehaviour
 
             // 버섯 오브젝트 제거
             Destroy(gameObject);
-            */
+            
             Transform playerTransform = collision.gameObject.transform;
 
             // 원래 크기를 저장
@@ -81,7 +81,7 @@ public class mushroom : MonoBehaviour
             StartCoroutine(ResetPlayerScale(playerTransform, originalScale));
 
 
-        }
+        }*/
 
     }
 
