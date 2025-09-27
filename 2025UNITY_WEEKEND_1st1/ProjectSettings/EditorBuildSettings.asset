@@ -6,8 +6,11 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/animal  croassing.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
+    path: Assets/Scenes/intro.unity
+    guid: c8b0240c21701bc4a8090a3c861b5684
+  - enabled: 1
+    path: Assets/Scenes/Regidbody.unity
+    guid: 22c2402cd45a9e645b0af48f78ba8b55
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 2bcd2660ca9b64942af0de543d8d7100, type: 3}
   m_UseUCBPForAssetBundles: 0
